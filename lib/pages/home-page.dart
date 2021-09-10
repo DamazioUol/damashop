@@ -1,3 +1,4 @@
+import 'package:damashop/components/drawer/drawers.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,7 +14,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "DamaShopping",
+          "Dama Shopping",
           style: TextStyle(
             color: Colors.amber,
           ),
@@ -21,21 +22,25 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         iconTheme: IconThemeData(color: Colors.amber),
       ),
-      drawer: Container(
+      drawer: DrawerComponent(),
+      body: Container(
         color: Colors.amber,
+        child: Container(
+          color: Colors.white,
+          margin: EdgeInsets.all(15),
+          child: ListView(
+            children: [
+              _body(),
+            ],
+          ),
+        ),
       ),
-      body: _body(),
     );
   }
 }
 
 _body() {
-  return Container(
-    color: Colors.amber,
-    child: Center(
-      child: Image(
-        image: AssetImage('assets/produtos/guidao_oxxy.jpg'),
-      ),
-    ),
+  return Image(
+    image: AssetImage('assets/produtos/guidao_oxxy.jpg'),
   );
 }
